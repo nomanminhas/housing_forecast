@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>California Housing Price Prediction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 50px;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+        }
+        label, input {
+            display: block;
+            margin: 10px 0;
+        }
+        button {
+            margin-top: 20px;
+        }
+        .result {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>California Housing Price Prediction</h1>
+        <form id="predictionForm" method="POST" action="/predict">
+            <label for="longitude">Longitude:</label>
+            <input type="number" step="any" id="longitude" name="longitude" required>
+            
+            <label for="latitude">Latitude:</label>
+            <input type="number" step="any" id="latitude" name="latitude" required>
+            
+            <label for="housing_median_age">Housing Median Age:</label>
+            <input type="number" step="any" id="housing_median_age" name="housing_median_age" required>
+            
+            <label for="average_rooms">Average Rooms:</label>
+            <input type="number" step="any" id="average_rooms" name="average_rooms" required>
+            
+            <label for="average_bedrooms">Average Bedrooms:</label>
+            <input type="number" step="any" id="average_bedrooms" name="average_bedrooms" required>
+            
+            <label for="population">Population:</label>
+            <input type="number" step="any" id="population" name="population" required>
+            
+            <label for="houseoccupancy">Household Occupancy:</label>
+            <input type="number" step="any" id="houseoccupancy" name="houseoccupancy" required>
+            
+            <label for="median_income">Median Income:</label>
+            <input type="number" step="any" id="median_income" name="median_income" required>
+            
+            <button type="submit">Get Prediction</button>
+        </form>
+        <div class="result">
+            {% if Result %}
+                <h2>Predicted Price: ${{ Result }}</h2>
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>
